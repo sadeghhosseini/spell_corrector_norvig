@@ -9,24 +9,16 @@ def removeErab(input_word):
     removables = ("َ", "ِ", "ُ" )#fathe, kasre, zamme    
     for rem in removables:
         temp = temp.replace(rem, "")
+    
     return temp
-
-def removeErabFromWordList(input_word_list):
-    result_word_list = []
-    temp_word = ''
-    removables = ("َ", "ِ", "ُ" )#fathe, kasre, zamme  
-    for word in input_word_list:
-        temp_word = word  
-        for rem in removables:
-            temp_word = temp_word.replace(rem, "")
-        result_word_list.append(temp_word)   
-    return result_word_list
 
 def correct(input_word):
     return spell.correction(input_word)
 
 
-
+input_word = "هجامنش"
+input_word = removeErab(input_word)
+print(correct(input_word))
 
 
 def read_from_file(path):
@@ -48,23 +40,10 @@ def correct_list(word_list):
     for word in word_list:
         corrected_word = correct(word)
         corrected_word_list.append(corrected_word)
-    return corrected_word_list
+    return corrected_word
         
 
-# def correct_word_list(word_list):
-#     result_str = ''
-#     for word in word_list:
-#         temp_word = correct(word)
-#         result_str += temp_word
-#     return result_str    
 
-#How to use:
-
-#1. Reading string from file
-result = correct_list(removeErabFromWordList(text_to_word_list(read_from_file("to_be_corrected"))))
-print(result)
-#2 entering word in program
-input_word = "هجامنش"
-input_word = removeErab(input_word)
-print(correct(input_word))
+result = text_to_word_list(read_from_file("to_be_corrected"))
+#print (result)
 
