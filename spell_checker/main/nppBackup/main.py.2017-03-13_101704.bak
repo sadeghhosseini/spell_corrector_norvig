@@ -4,14 +4,14 @@ import spell
 
 
 
-def remove_erab(input_word):
+def removeErab(input_word):
     temp = input_word
     removables = ("َ", "ِ", "ُ" )#fathe, kasre, zamme    
     for rem in removables:
         temp = temp.replace(rem, "")
     return temp
 
-def remove_erab_from_word_list(input_word_list):
+def removeErabFromWordList(input_word_list):
     result_word_list = []
     temp_word = ''
     removables = ("َ", "ِ", "ُ" )#fathe, kasre, zamme  
@@ -61,10 +61,10 @@ def correct_list(word_list):
 #How to use:
 
 #1. Reading string from file
-result = correct_list(remove_erab_from_word_list(text_to_word_list(read_from_file("to_be_corrected"))))
+result = correct_list(removeErabFromWordList(text_to_word_list(read_from_file("to_be_corrected"))))
 print(result)
 #2 entering word in program
 input_word = "هجامنش"
-input_word = remove_erab(input_word)
+input_word = removeErab(input_word)
 print(correct(input_word))
 
